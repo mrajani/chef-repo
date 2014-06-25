@@ -1,2 +1,2 @@
 default['apache']['foo'] = "bar"
-default['apache']['greeting'] = "globe"
+default['apache']['greeting'] = "Chef is Really Cool"
