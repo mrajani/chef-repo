@@ -5,3 +5,6 @@
 <p>Greeting! <%= node['apache']['greeting'] %></p>
 <p>This sie is <%= @site_name %>
 <p>This site IP is <%= node['ipaddress'] %>:<%= @port %></p>
+
+<p>Print recipe attribute</p>
+<p><%= node["apache"]["recipe_attr"] %></p>

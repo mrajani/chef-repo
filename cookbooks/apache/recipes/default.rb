@@ -19,3 +19,6 @@ template "/var/www/index.html" do
     source "index.html.erb"
     mode "0644"
 end
+
+node.default["apache"]["recipe_attr"] = "Node Attribute Set in Recipe"
+
