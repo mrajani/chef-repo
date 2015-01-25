@@ -1,9 +1,19 @@
-elcome to Ubuntu 12.04.4 LTS (GNU/Linux 3.11.0-15-generic x86_64)
-
- * Documentation:  https://help.ubuntu.com/
-
+<% require 'awesome_print' -%>
 Tne company is <%= node["motd"]["company"] %>
 <% if node["pci"]["in_scope"] -%>
 This server is PCI compliant
 <% end -%>
 
+The size of the pool is <%= @pool.size %>
+<% @pool.each do |p| -%>
+[<%= p[:fqdn] %>]
+<%= p[:kernel][:name] %>
+<%= p[:kernel][:release] %>
+    address <%= p[:ipaddress] %>
+    use_node_name yes
+<% end -%>
+
+<% @pool.each do |p| -%>
+   <% q = p[:network][:interfaces][:eth1][:addresses] -%>
+   <% ap q.keys -%>
+<% end -%>

@@ -6,9 +6,12 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+require 'awesome_print'
+pool_members = search(:node, 'roles:*')
 
-template "/var/run/motd" do
+template "/etc/motd" do
   source "motd.erb"
   mode "0644"
+  variables(:pool => pool_members)
 end
 
