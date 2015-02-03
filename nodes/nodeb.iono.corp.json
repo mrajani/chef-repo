@@ -1,5 +1,15 @@
 {
   "name": "nodeb.iono.corp",
+  "chef_environment": "_default",
+  "run_list": [
+  "recipe[postgresql::client]",
+  "recipe[postgresql::server]",
+  "recipe[postgresql::config_initdb]",
+  "recipe[rabbitmq]",
+  "recipe[rabbitmq::mgmt_console]",
+  "recipe[rabbitmq::user_management]"
+]
+,
   "normal": {
     "tags": [
       "db",
@@ -7,19 +17,37 @@
     ],
     "postgresql": {
       "password": {
-        "postgres": "Abcd1234"
+        "postgres": "pB8B5VRu4Otk1SMz1Lwa"
       },
       "config": {
         "listen_addresses": "*"
       },
       "pg_hba": [
-        { "type": "host", "db": "all", "user": "all", "addr": "0.0.0.0/0", "method": "trust" }
+        {
+          "type": "host",
+          "db": "all",
+          "user": "all",
+          "addr": "0.0.0.0/0",
+          "method": "trust"
+        }
+      ]
+    },
+    "rabbitmq": {
+      "enabled_users": [
+        {
+          "name": "iono",
+          "password": "Abcd1234",
+          "rights": [
+            {
+              "vhosts": "nil",
+              "conf": ".*",
+              "write": ".*",
+              "read": ".*"
+            }
+          ],
+          "tag": "administrator"
+        }
       ]
     }
-  },
-  "run_list": [
-    "recipe[postgresql::client]",
-    "recipe[postgresql::server]",
-    "recipe[postgresql::config_initdb]"
-  ]
+  }
 }
