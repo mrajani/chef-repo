@@ -19,3 +19,8 @@
 default['tcserver']['rpm_filename'] = 'vfabric-tc-server-standard-2.9.5-SR1.noarch.rpm'
 default['tcserver']['rpm_url'] = "http://repo.vmware.com/pub/rhel6/vfabric/5.3/x86_64/#{ node['tcserver']['rpm_filename'] }"
 default['tcserver']['rpm_sum'] = '2f2e898bf9db2673344bb6ab8e3ce5ba17ac1d778dc5d97f761114dbbf0b04ff'
+
+default['java']['groovy_zip'] =  'groovy-binary-2.4.0.zip'
+default['java']['groovy_url'] =  'http://dl.bintray.com/groovy/maven/groovy-binary-2.4.0.zip'
+default['java']['groovy_sum'] =  '69a01bcce68295b185036c61d5a7dde27078ab1c3f7da488e9c1ef9ad0ca60f1'
+default['java']['groovy_ver'] =  'groovy-2.4.0'
