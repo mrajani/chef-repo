@@ -45,7 +45,7 @@ end
 bash 'extract_groovy' do
   cwd '/opt/'
   code <<-EOH
-    unzip -qq -fo #{Chef::Config[:file_cache_path]}/#{node['java']['groovy_zip']}
+    unzip -qq  #{Chef::Config[:file_cache_path]}/#{node['java']['groovy_zip']}
   EOH
   not_if { ::File.exists?('/opt/groovy') }
 end
